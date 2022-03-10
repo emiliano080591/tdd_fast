@@ -2,6 +2,10 @@
 
 Ejemplo de un api con FastApi, docker y CI
 
+# Test-Driven Development with FastAPI and Docker
+
+![Continuous Integration and Delivery](https://github.com/emiliano080591/tdd_fast/workflows/Continuous%20Integration%20and%20Delivery/badge.svg?branch=main)
+
 ### Levantar servidor manualmente
 
 ```shell
@@ -78,5 +82,28 @@ $ >  docker-compose exec web black . --check
 ```shell
 $ >  docker-compose exec web isort .
 ```
+
+### Generar imagen Docker para integracion continua
+
+```shell
+$ >  docker build -f Dockerfile.prod -t docker.pkg.github.com/<Usuario>/<Nombre_proyecto_en_github>/summarizer:latest ./
+```
+
+### Loguearse en github para subir imagen docker
+
+```shell
+$ >  docker login docker.pkg.github.com -u <USERNAME> -p <TOKEN>
+```
+
+### Hacer push de la imagen Docker
+
+```shell
+$ >  docker push docker.pkg.github.com/<USERNAME>/<REPOSITORY_NAME>/summarizer:latest
+```
+
+### Para ver la imagen generada
+
+https://github.com/<USERNAME>/<REPOSITORY_NAME>/packages
+
 
 
