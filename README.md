@@ -1,3 +1,7 @@
+# FastApi example
+
+Ejemplo de un api con FastApi, docker y CI
+
 ### Levantar servidor manualmente
 
 ```shell
@@ -44,4 +48,35 @@ $ >  docker-compose exec web aerich init-db
 ```shell
 $ >  docker-compose exec web python -m pytest
 ```
+
+### Correr tests con coverage
+
+```shell
+$ >  docker-compose exec web python -m pytest --cov="."
+```
+
+### Generar reporte de los tests(html)
+
+```shell
+$ >  docker-compose exec web python -m pytest --cov="." --cov-report html
+```
+
+### Correr el quality code
+
+```shell
+$ >  docker-compose exec web flake8 .
+```
+
+### Para dar formato al código
+
+```shell
+$ >  docker-compose exec web black . --check
+```
+
+### Para ordenar imports
+
+```shell
+$ >  docker-compose exec web isort .
+```
+
 
